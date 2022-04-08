@@ -1,7 +1,6 @@
 package com.junittestingexam.testjunitmockitofour.entity;
 
 import java.io.Serializable;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,11 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Customer implements Serializable {
+
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * 
@@ -68,11 +71,16 @@ public class Customer implements Serializable {
 		return serialVersionUID;
 	}
 
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerEmail="
-				+ customerEmail + ", cart=" + cart + "]";
+	public Customer(Long customerId, String customerName, String customerEmail, Cart cart) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.customerEmail = customerEmail;
+		this.cart = cart;
 	}
+
+	
+
 	
 	
 

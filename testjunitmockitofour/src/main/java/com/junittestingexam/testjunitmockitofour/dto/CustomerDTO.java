@@ -42,6 +42,15 @@ public class CustomerDTO {
 	public void setCart(Cart cart) {
 		this.cart = cart;
 	}
+
+	@Override
+	public String toString() {
+		return "CustomerDTO [customerId=" + customerId + ", customerName=" + customerName + ", customerEmail="
+				+ customerEmail + ", cart=" + cart + "]";
+	}
+
+	
+
 	
 	
 	

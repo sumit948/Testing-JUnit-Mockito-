@@ -15,9 +15,14 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.web.servlet.MockMvc;
 
+import com.junittestingexam.testjunitmockitofour.dto.CustomerDTO;
 import com.junittestingexam.testjunitmockitofour.entity.Cart;
+import com.junittestingexam.testjunitmockitofour.entity.Customer;
 import com.junittestingexam.testjunitmockitofour.service.CartService;
+import com.junittestingexam.testjunitmockitofour.service.CustomerService;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestCartController {
@@ -33,6 +38,7 @@ public class TestCartController {
 	@Mock
 	public CartService cartServ;
 	
+
 	
 	@Test
 	public void testGetCall() {
@@ -51,6 +57,8 @@ public class TestCartController {
 		
 		assertEquals(1, resultList.size());
 	}
+	
+	
 	
 	@Test
 	public void testSample() {

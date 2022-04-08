@@ -1,6 +1,8 @@
 package com.junittestingexam.testjunitmockitofour.service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,4 +68,23 @@ public class CustomerService {
 		customer = custRepo.save(customer);
 				
 	}
+
+	public void updateCustomer(CustomerDTO custDTO) {
+		Customer customer = customerMapper.toCustomerEntity(custDTO);
+		
+		customer = custRepo.save(customer);
+	}
+
+	public List<CustomerDTO> getALLCustomers() {
+		List<Customer> list = (List<Customer>) custRepo.findAll();
+		return list.stream().map(e->customerMapper.toCustomerDTO(e)).collect(Collectors.toList());
+	}
+
+	public void deleteCustomerBasedOnId(Long customerId) {
+		Optional<Customer> customer = custRepo.findByCustomerId(customerId);
+		if(!customer.isPresent())
+			custRepo.deleteByCustomerId(customerId);
+			
+	}
+	
 }
